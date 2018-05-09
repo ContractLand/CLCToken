@@ -9,7 +9,7 @@
   "scripts": {
     "deploy-local": "truffle migrate --network development",
     "deploy-ropsten": "truffle migrate --network ropsten",
-    "deploy-mainnet": "truffle migrate --network ropsten",
+    "deploy-mainnet": "truffle migrate --network mainnet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
