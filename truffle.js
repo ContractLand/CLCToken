@@ -1,8 +1,10 @@
 require('babel-register');
 require('babel-polyfill');
 
-var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = "crawl fade put couch jewel wine basket million license indoor push sniff";
+const Web3 = require("web3");
+const web3 = new Web3();
+const HDWalletProvider = require("truffle-hdwallet-provider");
+const mnemonic = process.env["MNEMONIC"]
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -19,6 +21,7 @@ module.exports = {
         return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/KetwbGBGwNagOnjgPUkN")
       },
       gas: 4600000,
+      gasPrice: web3.toWei("20", "gwei"),
       network_id: 3
     },
     rinkeby: {
@@ -26,14 +29,15 @@ module.exports = {
         return new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/KetwbGBGwNagOnjgPUkN")
       },
       gas: 4600000,
+      gasPrice: web3.toWei("20", "gwei"),
       network_id: 4
     },
     mainnet: {
       provider: function() {
         return new HDWalletProvider(mnemonic, "https://mainnet.infura.io/KetwbGBGwNagOnjgPUkN")
       },
-      gas: 4712388,
-      gasPrice: 100000000000,
+      gas: 4600000,
+      gasPrice: web3.toWei("20", "gwei"),
       network_id: 1
     },
   },
